@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "creation": "2021-06-20 13:23:05.051218",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amenity"
+ ],
+ "fields": [
+  {
+   "fieldname": "amenity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Amenity",
+   "options": "Property Amenity Item",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2021-06-20 13:26:43.674617",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "Property Amenity Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "autoname": "format:{######}",
+ "creation": "2021-06-20 12:50:16.138121",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "property_name",
+  "address",
+  "property_type",
+  "column_break_3",
+  "image",
+  "agent",
+  "status",
+  "section_break_8",
+  "description",
+  "section_break_7",
+  "amenities"
+ ],
+ "fields": [
+  {
+   "fieldname": "property_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Property Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Agent"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break",
+   "label": "Amenities Section"
+  },
+  {
+   "fieldname": "amenities",
+   "fieldtype": "Table",
+   "label": "Amenities",
+   "options": "Property Amenity Detail"
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Link",
+   "label": "Property Type",
+   "options": "Property Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nSale\nRent\nLease",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-06-20 13:52:39.230224",
+ "modified_by": "Administrator",
+ "module": "Estate App",
+ "name": "Property",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
