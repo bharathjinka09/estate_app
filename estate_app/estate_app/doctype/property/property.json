@@ -12,6 +12,7 @@
   "column_break_3",
   "image",
   "agent",
+  "agent_name",
   "status",
   "section_break_8",
   "description",
@@ -82,11 +83,20 @@
   {
    "fieldname": "section_break_8",
    "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "agent",
+   "fetch_from": "agent.agent_name",
+   "fetch_if_empty": 1,
+   "fieldname": "agent_name",
+   "fieldtype": "Data",
+   "label": "Agent Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-20 13:52:39.230224",
+ "modified": "2021-06-20 17:21:16.260353",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property",

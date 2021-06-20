@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "field:agent_name",
+ "autoname": "format:AG-PR-{YY}-{MM}-{######}",
  "creation": "2021-06-20 12:57:45.325413",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -29,8 +29,10 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Email",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "image",
@@ -40,7 +42,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-06-20 12:58:18.082263",
+ "modified": "2021-06-20 17:14:21.580267",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Agent",
