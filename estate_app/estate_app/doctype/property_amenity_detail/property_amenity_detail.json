@@ -5,7 +5,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "amenity"
+  "amenity",
+  "amenity_price",
+  "discount"
  ],
  "fields": [
   {
@@ -15,12 +17,25 @@
    "label": "Amenity",
    "options": "Property Amenity Item",
    "reqd": 1
+  },
+  {
+   "depends_on": "amenity",
+   "fetch_from": "amenity.amenity_price",
+   "fetch_if_empty": 1,
+   "fieldname": "amenity_price",
+   "fieldtype": "Currency",
+   "label": "Amenity Price"
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Percent",
+   "label": "Discount"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2021-06-20 13:26:43.674617",
+ "modified": "2021-06-21 18:29:29.306719",
  "modified_by": "Administrator",
  "module": "Estate App",
  "name": "Property Amenity Detail",
