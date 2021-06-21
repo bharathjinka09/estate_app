@@ -2,7 +2,61 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Property', {
-	// refresh: function(frm) {
+	setup: function(frm){
+		// check amenities duplicate
+		frm.check_amenities_duplicate = function(frm,row){
+			frm.doc.amenitiess.forEach(item=>{
+				console.log({row})
+				if(row.amenity==item.amenity){
+					// clear field
+					row.amenity = ''
+					frm.refresh_field('amenitiess')
+					frappe.throw(`${item.amenity} already exists in the row ${item.idx}`)
+				}
+			})
+		}
+		// check flat against outdoor kitchen
+		frm.check_flat_against_outdoor_kitchen = function(frm,row){
+			if(row.amenity == 'Outdoor Kitchen' && frm.doc.property_type=="Flat"){
+					let amenity = row.amenity
+					row.amenity = ''
+					frappe.throw(`${amenity} cannot exist in a flat`)
+					frm.refresh_field('amenitiess')
+			}
+		}
+	},
+	refresh: function(frm) {
+		// frm.add_custom_button('Say Hi', () => {
+		// 	console.log("hi")
+		// 	frappe.msgprint("Hi")
+		// },"Actions");
+		// frm.add_custom_button('Ping', () => {
+		// 			console.log("ping")
+		// },"Actions");
+		// frm.add_custom_button('Pong', () => {
+		// 			console.log("pong")
+		// },"Actions");
 
-	// }
+		frm.add_custom_button('Update Address', () => {
+
+			frappe.prompt('Address',({value}) => {
+				if(value){
+					frm.set_value('address', value)
+					frm.refresh_field('address')
+					frappe.msgprint(`Address updated with ${value} successfully!`)
+				}
+			})
+		})
+	},
 });
+
+// Property Amenity Detail child table
+frappe.ui.form.on("Property Amenity Detail",{
+	amenity: function(frm,cdt,cdn){
+		// grab entire record
+		let row = locals[cdt][cdn]
+		// console.log({row})
+		frm.check_flat_against_outdoor_kitchen(frm, row)
+		frm.check_amenities_duplicate(frm, row)
+	}
+})
