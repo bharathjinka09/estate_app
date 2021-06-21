@@ -30,6 +30,7 @@ frappe.ui.form.on('Property', {
 		// compute total
 		frm.compute_total = function(frm){
 			let total = 0
+			// loop throgh child table
 			frm.doc.amenitiess.forEach(d=>{
 				total = total+d.amenity_price
 			})
@@ -41,7 +42,7 @@ frappe.ui.form.on('Property', {
 
 			}
 			console.log({new_total})
-			// set value
+			// set grand total
 			frm.set_value('grand_total', new_total)
 		},
 
