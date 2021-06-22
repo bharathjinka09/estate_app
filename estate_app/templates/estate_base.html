@@ -25,9 +25,33 @@
     <link rel="stylesheet" href="/assets/estate_app/homeland/css/aos.css">
 
     <link rel="stylesheet" href="/assets/estate_app/homeland/css/style.css">
+
+    <!-- Frappe Resources Head -->
+        <link type="text/css" rel="stylesheet" href="/assets/frappe/dist/css/desk.bundle.EQYOX7UI.css">
+        <link type="text/css" rel="stylesheet" href="/assets/erpnext/dist/css/erpnext.bundle.PEP6K6D6.css">
+
+  <script>
+    window.frappe = {};
+    frappe.ready_events = [];
+    frappe.ready = function(fn) {
+      frappe.ready_events.push(fn);
+    }
+    window.dev_server = {{ dev_server }};
+    window.socketio_port = {{ (frappe.socketio_port or 'null') }};
+    window.show_language_picker = {{ show_language_picker or 'false' }};
+    window.is_chat_enabled = {{ chat_enable }};
+  </script>
+
+  <style type="text/css">
+    body{
+      overflow-x: hidden;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+  </style>
     
   </head>
-  <body>
+  <body frappe-session-status="{{ 'logged-in' if frappe.session.user != 'Guest' else 'logged-out'}}" data-path="{{ path | e }}" {%- if template and template.endswith('.md') %} frappe-content-type="markdown" {%- endif %} class="{{ body_class or ''}}">
   
   <div class="site-loader"></div>
   
@@ -174,6 +198,20 @@
   <script src="/assets/estate_app/homeland/js/aos.js"></script>
 
   <script src="/assets/estate_app/homeland/js/main.js"></script>
-    
+    <!-- frappe resources -->
+    <script type="text/javascript" src="/assets/frappe/dist/js/libs.bundle.D3DY3IBP.js"></script>
+  
+  <script type="text/javascript" src="/assets/frappe/dist/js/desk.bundle.ZITSHIKN.js"></script>
+  
+  <!-- <script type="text/javascript" src="/assets/frappe/dist/js/list.bundle.CCHEDLIY.js"></script> -->
+  
+  <!-- <script type="text/javascript" src="/assets/frappe/dist/js/form.bundle.SVPVHX6X.js"></script> -->
+  
+  <script type="text/javascript" src="/assets/frappe/dist/js/controls.bundle.TXTZCK33.js"></script>
+  
+  <!-- <script type="text/javascript" src="/assets/frappe/dist/js/report.bundle.GQBSQSDH.js"></script> -->
+  
+  <script type="text/javascript" src="/assets/erpnext/dist/js/erpnext.bundle.B75LLBIP.js"></script>
+  
   </body>
 </html>
