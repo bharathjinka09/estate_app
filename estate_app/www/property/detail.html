@@ -32,7 +32,7 @@
                 <div class="col-md-6">
                   <strong class="text-success h1 mb-3">{{ frappe.format(property.grand_total, {'fieldtype':'Currency'}) }}</strong>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                   <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
                   <li>
                     <span class="property-specs">Beds</span>
@@ -50,7 +50,7 @@
                     
                   </li>
                 </ul>
-                </div>
+                </div> -->
               </div>
               <div class="row mb-5">
                 <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
@@ -163,11 +163,11 @@
               </form>
             </div>
 
-            <div class="bg-white widget border rounded">
+            <!-- <div class="bg-white widget border rounded">
               <h3 class="h4 text-black widget-title mb-3">Paragraph</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit qui explicabo, libero nam, saepe eligendi. Molestias maiores illum error rerum. Exercitationem ullam saepe, minus, reiciendis ducimus quis. Illo, quisquam, veritatis.</p>
             </div>
-
+ -->
           </div>
           
         </div>
@@ -186,112 +186,42 @@
         </div>
       
         <div class="row mb-5">
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="property-entry h-100">
-              <a href="property-details.html" class="property-thumbnail">
-                <div class="offer-type-wrap">
-                  <span class="offer-type bg-danger">Sale</span>
-                  <span class="offer-type bg-success">Rent</span>
-                </div>
-                <img src="/assets/estate_app/homeland/images/img_1.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="p-4 property-body">
-                <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                <h2 class="property-title"><a href="property-details.html">625 S. Berendo St</a></h2>
-                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 625 S. Berendo St Unit 607 Los Angeles, CA 90005</span>
-                <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                <ul class="property-specs-wrap mb-3 mb-lg-0">
-                  <li>
-                    <span class="property-specs">Beds</span>
-                    <span class="property-specs-number">2 <sup>+</sup></span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">Baths</span>
-                    <span class="property-specs-number">2</span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">SQ FT</span>
-                    <span class="property-specs-number">7,000</span>
-                    
-                  </li>
-                </ul>
+          {% for related_property in related_properties %}
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div class="property-entry h-100">
+                <a href="/property/detail/{{related_property.name}}" class="property-thumbnail">
+                  <div class="offer-type-wrap">
+                    <span class="offer-type bg-{% if property.status=='Rent' %}success{% elif property.status=='Sale' %}danger{% else %}warning{% endif %}">{{property.status}}</span>
+                  </div>
+                  <img src="/assets/estate_app/homeland/images/img_1.jpg" alt="Image" class="img-fluid">
+                </a>
+                <div class="p-4 property-body">
+                  <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
+                  <h2 class="property-title"><a href="/property/detail/{{related_property.name}}">{{related_property.property_name}}</a></h2>
+                  <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> {{related_property.address}}</span>
+                  <strong class="property-price text-primary mb-3 d-block text-success">{{ frappe.format(related_property.grand_total, {'fieldtype':'Currency'}) }}</strong>
+                  <!-- <ul class="property-specs-wrap mb-3 mb-lg-0">
+                    <li>
+                      <span class="property-specs">Beds</span>
+                      <span class="property-specs-number">2 <sup>+</sup></span>
+                      
+                    </li>
+                    <li>
+                      <span class="property-specs">Baths</span>
+                      <span class="property-specs-number">2</span>
+                      
+                    </li>
+                    <li>
+                      <span class="property-specs">SQ FT</span>
+                      <span class="property-specs-number">7,000</span>
+                      
+                    </li>
+                  </ul> -->
 
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="property-entry h-100">
-              <a href="property-details.html" class="property-thumbnail">
-                <div class="offer-type-wrap">
-                  <span class="offer-type bg-danger">Sale</span>
-                  <span class="offer-type bg-success">Rent</span>
-                </div>
-                <img src="/assets/estate_app/homeland/images/img_2.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="p-4 property-body">
-                <a href="#" class="property-favorite active"><span class="icon-heart-o"></span></a>
-                <h2 class="property-title"><a href="property-details.html">871 Crenshaw Blvd</a></h2>
-                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 1 New York Ave, Warners Bay, NSW 2282</span>
-                <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                <ul class="property-specs-wrap mb-3 mb-lg-0">
-                  <li>
-                    <span class="property-specs">Beds</span>
-                    <span class="property-specs-number">2 <sup>+</sup></span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">Baths</span>
-                    <span class="property-specs-number">2</span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">SQ FT</span>
-                    <span class="property-specs-number">1,620</span>
-                    
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 mb-4">
-            <div class="property-entry h-100">
-              <a href="property-details.html" class="property-thumbnail">
-                <div class="offer-type-wrap">
-                  <span class="offer-type bg-info">Lease</span>
-                </div>
-                <img src="/assets/estate_app/homeland/images/img_3.jpg" alt="Image" class="img-fluid">
-              </a>
-              <div class="p-4 property-body">
-                <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                <h2 class="property-title"><a href="property-details.html">853 S Lucerne Blvd</a></h2>
-                <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 853 S Lucerne Blvd Unit 101 Los Angeles, CA 90005</span>
-                <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
-                <ul class="property-specs-wrap mb-3 mb-lg-0">
-                  <li>
-                    <span class="property-specs">Beds</span>
-                    <span class="property-specs-number">2 <sup>+</sup></span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">Baths</span>
-                    <span class="property-specs-number">2</span>
-                    
-                  </li>
-                  <li>
-                    <span class="property-specs">SQ FT</span>
-                    <span class="property-specs-number">5,500</span>
-                    
-                  </li>
-                </ul>
-
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
 

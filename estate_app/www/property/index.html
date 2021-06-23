@@ -121,7 +121,7 @@
               <div class="property-entry h-100">
                 <a href="/property/detail/{{property.name}}" class="property-thumbnail">
                   <div class="offer-type-wrap">
-                    <span class="offer-type bg-danger">{{property.status}}</span>
+                    <span class="offer-type bg-{% if property.status=='Rent' %}success{% elif property.status=='Sale' %}danger{% else %}warning{% endif %}">{{property.status}}</span>
                   </div>
                   <center>
                     <img style="object-fit: contain; width: 100%;height: 232px !important;" src="{{property.image}}" alt="Image" class="img-fluid">
@@ -132,7 +132,7 @@
                   <h2 class="property-title"><a href="/property/detail/{{property.name}}">{{property.property_name}}</a></h2>
                   <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>{{property.address}}</span>
                   <strong class="property-price text-primary mb-3 d-block text-success">{{ frappe.format(property.grand_total, {'fieldtype':'Currency'}) }}</strong>
-                  <ul class="property-specs-wrap mb-3 mb-lg-0">
+                  <!-- <ul class="property-specs-wrap mb-3 mb-lg-0">
                     <li>
                       <span class="property-specs">Beds</span>
                       <span class="property-specs-number">2 <sup>+</sup></span>
@@ -148,7 +148,7 @@
                       <span class="property-specs-number">7,000</span>
                       
                     </li>
-                  </ul>
+                  </ul> -->
 
                 </div>
               </div>
