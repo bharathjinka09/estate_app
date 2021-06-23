@@ -157,9 +157,9 @@
                   <label for="phone">Phone</label>
                   <input type="text" id="phone" class="form-control" disabled value="{{agent.phone}}">
                 </div>
-                <!-- <div class="form-group">
-                  <input type="submit" id="phone" class="btn btn-primary" value="Send Message">
-                </div> -->
+                <div class="form-group">
+                  <input type="button" id="contact" class="btn btn-primary" value="Send Message">
+                </div>
               </form>
             </div>
 
@@ -196,7 +196,7 @@
                   <img src="/assets/estate_app/homeland/images/img_1.jpg" alt="Image" class="img-fluid">
                 </a>
                 <div class="p-4 property-body">
-                  <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
+                  <!-- <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a> -->
                   <h2 class="property-title"><a href="/property/detail/{{related_property.name}}">{{related_property.property_name}}</a></h2>
                   <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> {{related_property.address}}</span>
                   <strong class="property-price text-primary mb-3 d-block text-success">{{ frappe.format(related_property.grand_total, {'fieldtype':'Currency'}) }}</strong>

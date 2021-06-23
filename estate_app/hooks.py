@@ -9,7 +9,18 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "bharathjinka09@gmail.com"
 app_license = "MIT"
+app_logo_url = "/assets/erpnext/images/erpnext-logo.svg"  
 
+
+
+
+
+
+
+website_context = {
+"favicon": "/assets/erpnext/images/erpnext-favicon.svg",
+"splash_image": "/assets/erpnext/images/erpnext-logo.svg"
+}
 # Includes in <head>
 # ------------------
 
