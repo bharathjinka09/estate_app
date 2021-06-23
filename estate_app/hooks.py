@@ -1,4 +1,5 @@
 from . import __version__ as app_version
+from .route import routes
 
 app_name = "estate_app"
 app_title = "Estate App"
@@ -48,6 +49,15 @@ doctype_js = {
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+# website_route_rules = [
+# 	{'from_route':'/property/detail/<docname>','to_route':'property/detail'},
+# 	# {'from_route':'/agent/detail/<docname>','to_route':'agent/detail'},
+# ]
+
+# OR
+
+website_route_rules = routes
 
 # Generators
 # ----------
