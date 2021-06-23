@@ -9,7 +9,8 @@
           <div class="col-md-10">
             <span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded">Property Details of</span>
             <h1 class="mb-2">{{property.property_name}}</h1>
-            <p class="mb-5"><strong class="h2 text-success font-weight-bold">{{property.grand_total}}</strong></p>
+            <p class="mb-5"><strong class="h2 text-success font-weight-bold">
+            {{ frappe.format(property.grand_total, {'fieldtype':'Currency'}) }}</strong></p>
           </div>
         </div>
       </div>
@@ -29,7 +30,7 @@
             <div class="bg-white property-body border-bottom border-left border-right">
               <div class="row mb-5">
                 <div class="col-md-6">
-                  <strong class="text-success h1 mb-3">₹ {{property.grand_total}}</strong>
+                  <strong class="text-success h1 mb-3">{{ frappe.format(property.grand_total, {'fieldtype':'Currency'}) }}</strong>
                 </div>
                 <div class="col-md-6">
                   <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
@@ -66,7 +67,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
                   <span class="d-inline-block text-black mb-0 caption-text">Actual Price</span>
-                  <strong class="d-block">₹ {{property.property_price}}</strong>
+                  <strong class="d-block">{{ frappe.format(property.grand_total, {'fieldtype':'Currency'}) }}</strong>
                 </div>
               </div>
               <h2 class="h4 text-black">More Info</h2>
@@ -87,7 +88,7 @@
                       <tr>
                         <th scope="row">{{loop.index}}</th>
                         <td>{{amenity.amenity}}</td>
-                        <td>₹ {{amenity.amenity_price}}</td>
+                        <td>{{ frappe.format(amenity.amenity_price, {'fieldtype':'Currency'}) }}</td>
                       </tr>
                       {% endfor %}
                     </tbody>
